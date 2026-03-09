@@ -1,13 +1,15 @@
-# Escola de Conducao 3 de Agosto - Sistema de Gestao de Pagamentos
+# Escola de Condução 3 de Agosto - Sistema de Gestão de Pagamentos
 
-Este e um sistema web moderno e minimalista desenvolvido para gerir estudantes, categorias de cursos e pagamentos de uma escola de conducao.
+Este e um sistema web moderno e minimalista desenvolvido para gerir estudantes, categorias de cursos e pagamentos de uma escola de condução.
+
+**Desenvolvido por [Hiobaldine Sá](https://www.linkedin.com/in/hiobaldine/) © 2026**
 
 ## Tecnologias Utilizadas
 
 - **Backend:** PHP 7+ (Arquitetura MVC customizada)
 - **Base de Dados:** MySQL
 - **Frontend:** HTML5, CSS3 (Minimalista), Bootstrap, FontAwesome
-- **Graficos:** Chart.js
+- **Gráficos:** Chart.js
 - **Tabelas:** DataTables.js
 
 ## Requisitos e Instalacao
@@ -17,7 +19,7 @@ Este e um sistema web moderno e minimalista desenvolvido para gerir estudantes, 
    - Crie uma base de dados chamada `escola_conducao_3agosto`.
    - Importe o ficheiro `database.sql` incluido na raiz do projeto.
 3. **Configuracao:**
-   - O ficheiro de ligacao a base de dados encontra-se em `app/Core/Database.php`. Ajuste as credenciais (host, user, pass) se necessario.
+   - O ficheiro de ligacao a base de dados encontra-se em `app/Core/Database.php`. Ajuste as credenciais (host, user, pass) se necessário.
 4. **Execucao:**
    - Aponte o servidor web para a pasta `public/`.
    - Para rodar com o servidor embutido do PHP (a partir da raiz do projeto), use:
@@ -35,12 +37,12 @@ Este e um sistema web moderno e minimalista desenvolvido para gerir estudantes, 
 
 ## Principais Funcionalidades
 
-- **Dashboard:** Visao geral de estatisticas e graficos financeiros.
-- **Categorias de Cursos:** Gestao de precos e duracoes de cada categoria (A, B, C, D).
-- **Gestao de Estudantes:** Cadastro completo e visualizacao de perfil financeiro.
-- **Pagamentos:** Registo de pagamentos em parcelas com abatimento automatico no saldo.
-- **Fatura A4:** Geracao automatica de fatura em duplicado (Via Estudante / Via Escola) formatada para impressao.
-- **Relatorios:** Exportacao de historico de pagamentos para CSV e visualizacao web.
+- **Dashboard:** Visão geral de estatísticas e gráficos financeiros.
+- **Categorias de Cursos:** Gestao de precos e durações de cada categoria (A, B, C, D).
+- **Gestão de Estudantes:** Cadastro completo e visualização de perfil financeiro.
+- **Pagamentos:** Registo de pagamentos em parcelas com abatimento automation no saldo.
+- **Fatura A4:** Geração automática de fatura em duplicado (Via Estudante / Via Escola) formatada para impressão.
+- **Relatórios:** Exportação de histórico de pagamentos para CSV e visualização web.
 
 ---
 
