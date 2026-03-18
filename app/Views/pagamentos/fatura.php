@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Fatura - Escola de Condução 3 de Agosto</title>
+    <title>Fatura - Escola de Condução "3 de Agosto"</title>
     <style>
         body {
             font-family: sans-serif;
@@ -132,7 +132,7 @@
 
     <div class="container">
         <?php
-       /*  */ $vias = ["1ª Via - Original (Estudante)", "2ª Via - Cópia (Administração)"];
+        /*  */ $vias = ["1ª Via - Original (Estudante)", "2ª Via - Cópia (Administração)"];
         foreach ($vias as $via):
             ?>
             <div class="invoice-box">
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="header">
-                    <h1>Escola de Condução 3 de Agosto</h1>
+                    <h1>Escola de Condução<!--  --> "3 de Agosto""</h1>
                     <p>Formando Condutores Responsáveis</p>
                     <p>Contato: 95... /96.... XXX XXX XXX | Email: info@escola3agosto.com</p>
                 </div>
@@ -207,7 +207,7 @@
                         Assinatura do Estudante
                     </div> -->
                     <div class="sig-box">
-                        Carimbo e Assinatura (EC 3 de Agosto)
+                        O Financeiro
                     </div>
                 </div>
             </div>

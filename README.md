@@ -1,4 +1,4 @@
-# Escola de Condução 3 de Agosto - Sistema de Gestão de Pagamentos
+# Escola de Condução "Escola de Condução "3 de Agosto"" - Sistema de Gestão de Pagamentos
 
 Este e um sistema web moderno e minimalista desenvolvido para gerir estudantes, categorias de cursos e pagamentos de uma escola de condução.
 

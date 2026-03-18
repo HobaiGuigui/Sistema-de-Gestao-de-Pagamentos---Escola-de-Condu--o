@@ -37,17 +37,19 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EC 3 de Agosto | <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
+    <title>EC Escola de Condução "3 de Agosto" | <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet"
+        href="<?php echo URLROOT; ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
     <style>
         :root {
-            --brand: #0059b3; /* Blue from logo */
+            --brand: #0059b3;
+            /* Blue from logo */
             --brand-dark: #003d7a;
             --brand-soft: #e8f3ff;
             --bg: #f8fafc;
@@ -351,7 +353,8 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
             }
 
             .content-wrapper {
-                padding: 16px; /* Less padding on small screens */
+                padding: 16px;
+                /* Less padding on small screens */
             }
 
             .sidebar-toggle {
@@ -374,7 +377,8 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
             }
 
             .page-title h4 {
-                font-size: 16px; /* Smaller title on mobile */
+                font-size: 16px;
+                /* Smaller title on mobile */
             }
         }
     </style>
@@ -384,8 +388,9 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
     <div class="wrapper" id="appWrapper">
         <aside class="main-sidebar">
             <div class="sidebar-brand">
-                <img src="<?php echo URLROOT; ?>/logo.jpg" alt="Logo" style="width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; vertical-align: middle;">
-                EC 3 de Agosto
+                <img src="<?php echo URLROOT; ?>/logo.jpg" alt="Logo"
+                    style="width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; vertical-align: middle;">
+                EC Escola de Condução "3 de Agosto"
             </div>
             <ul class="sidebar-menu">
                 <li class="<?php echo $isDashboardActive ? 'active' : ''; ?>">
@@ -395,20 +400,24 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
                     <a href="<?php echo URLROOT; ?>/estudantes"><i class="fa fa-users"></i> Estudantes</a>
                 </li>
                 <li class="submenu-item <?php echo ($activeTab === 'estudantes.add') ? 'active' : ''; ?>">
-                    <a href="<?php echo URLROOT; ?>/estudantes/cadastrar"><i class="fa fa-user-plus"></i> Adicionar Estudante</a>
+                    <a href="<?php echo URLROOT; ?>/estudantes/cadastrar"><i class="fa fa-user-plus"></i> Adicionar
+                        Estudante</a>
                 </li>
                 <li class="<?php echo $isCategoriasActive ? 'active' : ''; ?>">
                     <a href="<?php echo URLROOT; ?>/categorias"><i class="fa fa-list"></i> Categorias</a>
                 </li>
-                <li class="<?php echo ($data['activePage'] == 'pagamentos' || $data['activePage'] == 'despesas') ? 'active' : ''; ?>">
+                <li
+                    class="<?php echo ($data['activePage'] == 'pagamentos' || $data['activePage'] == 'despesas') ? 'active' : ''; ?>">
                     <a href="#"><i class="fa fa-money"></i> <span>FINANCEIRO</span><i
                             class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li class="<?php echo ($data['activePage'] == 'pagamentos') ? 'active' : ''; ?>">
-                            <a href="<?php echo URLROOT; ?>/pagamentos"><i class="fa fa-circle-o"></i> Pagamentos Recebidos</a>
+                            <a href="<?php echo URLROOT; ?>/pagamentos"><i class="fa fa-circle-o"></i> Pagamentos
+                                Recebidos</a>
                         </li>
                         <li class="<?php echo ($data['activePage'] == 'despesas') ? 'active' : ''; ?>">
-                            <a href="<?php echo URLROOT; ?>/despesas"><i class="fa fa-circle-o"></i> Gestão de Despesas</a>
+                            <a href="<?php echo URLROOT; ?>/despesas"><i class="fa fa-circle-o"></i> Gestão de
+                                Despesas</a>
                         </li>
                     </ul>
                 </li>
@@ -417,7 +426,8 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
                 </li>
                 <li class="menu-separator">Sessão</li>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/auth/logout" style="color: #dc2626;"><i class="fa fa-sign-out"></i> Sair</a>
+                    <a href="<?php echo URLROOT; ?>/auth/logout" style="color: #dc2626;"><i class="fa fa-sign-out"></i>
+                        Sair</a>
                 </li>
             </ul>
         </aside>

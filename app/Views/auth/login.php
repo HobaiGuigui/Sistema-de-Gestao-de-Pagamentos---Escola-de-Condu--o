@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EC 3 de Agosto | Acesso Restrito</title>
+    <title>EC Escola de Condução "3 de Agosto" | Acesso Restrito</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
