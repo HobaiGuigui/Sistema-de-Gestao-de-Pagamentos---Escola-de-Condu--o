@@ -47,14 +47,15 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
 
     <style>
         :root {
-            --brand: #1d4ed8;
-            --brand-soft: #e8f0ff;
-            --bg: #f4f7fc;
+            --brand: #0059b3; /* Blue from logo */
+            --brand-dark: #003d7a;
+            --brand-soft: #e8f3ff;
+            --bg: #f8fafc;
             --surface: #ffffff;
-            --text: #1f2937;
-            --muted: #6b7280;
-            --border: #e5eaf2;
-            --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.04);
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -231,6 +232,7 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
         .content-wrapper {
             margin-left: 270px;
             padding: 24px;
+            transition: all 0.3s ease;
         }
 
         .card-stat,
@@ -348,6 +350,10 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
                 margin-left: 0;
             }
 
+            .content-wrapper {
+                padding: 16px; /* Less padding on small screens */
+            }
+
             .sidebar-toggle {
                 display: inline-flex;
                 align-items: center;
@@ -366,6 +372,10 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
                 opacity: 1;
                 pointer-events: auto;
             }
+
+            .page-title h4 {
+                font-size: 16px; /* Smaller title on mobile */
+            }
         }
     </style>
 </head>
@@ -374,6 +384,7 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
     <div class="wrapper" id="appWrapper">
         <aside class="main-sidebar">
             <div class="sidebar-brand">
+                <img src="<?php echo URLROOT; ?>/logo.jpg" alt="Logo" style="width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; vertical-align: middle;">
                 EC 3 de Agosto
             </div>
             <ul class="sidebar-menu">

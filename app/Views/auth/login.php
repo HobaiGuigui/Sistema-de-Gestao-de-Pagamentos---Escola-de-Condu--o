@@ -12,50 +12,46 @@
 
     <style>
         :root {
-            --primary: #007bff;
-            --primary-dark: #0056b3;
-            --bg: #f8f9fa;
-            --text: #333;
+            --primary: #0059b3;
+            /* Blue from logo */
+            --primary-dark: #003d7a;
+            --text: #1f2937;
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
         body {
-            background: var(--bg);
+            background: url("<?php echo URLROOT; ?>/logo.jpg") no-repeat center center fixed;
+            background-size: cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
             margin: 0;
+            position: relative;
             overflow: hidden;
+            /* Prevent scroll on login */
         }
 
-        /* Animação de fundo */
-        body::before {
+        /* Overlay to darken background slightly for better readability */
+        body::after {
             content: "";
             position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(0, 123, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
-            top: -25%;
-            left: -25%;
-            z-index: -1;
-            animation: pulse 15s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.1);
-            }
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.5);
+            /* Semi-transparent overlay */
+            z-index: 1;
         }
 
         .login-container {
-            width: 100%;
-            max-width: 420px;
+            width: 90%;
+            max-width: 440px;
             padding: 20px;
+            position: relative;
+            z-index: 2;
             animation: fadeIn 0.8s ease-out;
         }
 
@@ -72,16 +68,27 @@
         }
 
         .login-card {
-            background: white;
-            padding: 45px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.02);
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            padding: 40px 30px;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+
+            .brand h2 {
+                font-size: 24px;
+            }
         }
 
         .brand {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .brand h2 {
@@ -89,7 +96,6 @@
             letter-spacing: -1.5px;
             color: var(--text);
             margin: 0;
-            font-size: 28px;
         }
 
         .brand span {
@@ -97,9 +103,10 @@
         }
 
         .brand p {
-            color: #888;
-            margin-top: 8px;
-            font-size: 15px;
+            color: #6b7280;
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .form-group {
@@ -108,20 +115,23 @@
 
         .form-label {
             font-weight: 600;
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 8px;
+            font-size: 12px;
+            color: #4b5563;
+            margin-bottom: 6px;
             display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-control {
-            height: 54px;
-            border-radius: 12px;
-            border: 2px solid #f1f1f1;
-            padding: 10px 18px;
+            height: 52px;
+            border-radius: 14px;
+            border: 2px solid #e5e7eb;
+            padding: 10px 16px;
             font-size: 15px;
             transition: all 0.3s;
             box-shadow: none !important;
+            width: 100%;
         }
 
         .form-control:focus {
@@ -135,37 +145,31 @@
             border: none;
             height: 54px;
             width: 100%;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 700;
             font-size: 16px;
             margin-top: 10px;
             transition: all 0.3s;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 89, 179, 0.3);
         }
 
         .btn-login:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
-        }
-
-        .btn-login:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 15px rgba(0, 89, 179, 0.4);
         }
 
         .error-msg {
-            background: #fff5f5;
-            color: #d9534f;
+            background: #fef2f2;
+            color: #dc2626;
             padding: 12px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 13px;
             margin-bottom: 20px;
-            border-left: 4px solid #d9534f;
+            border: 1px solid #fee2e2;
             display: none;
+            text-align: center;
         }
 
         <?php if (!empty($email_err) || !empty($password_err)): ?>
@@ -177,11 +181,20 @@
 
         .footer-text {
             text-align: center;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #aaa;
+            margin-top: 25px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            /* Brighter for readability on dark overlay */
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer-text b {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
+
 </head>
 
 <body>
@@ -215,7 +228,7 @@
             </form>
         </div>
 
-        <p class="footer-text">&copy; <?php echo date('Y'); ?> Todos os direitos reservados ao Engº. <b href:"https://linkedin.com/Hiobaldine">Hiobaldine</b> tel.:955502845</p>
+        <p>Desenvolvido por [Hiobaldine Sá](https://www.linkedin.com/in/hiobaldine/) © 2026 tel.:+245955502845</p>
     </div>
 
     <script src="<?php echo URLROOT; ?>/bower_components/jquery/dist/jquery.min.js"></script>

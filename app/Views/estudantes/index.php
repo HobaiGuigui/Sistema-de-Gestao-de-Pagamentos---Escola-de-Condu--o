@@ -11,7 +11,8 @@
         </a>
     </div>
 
-    <table class="table table-hover dataTable">
+    <div class="table-responsive">
+        <table class="table table-striped dataTable">
         <thead>
             <tr>
                <!--  <th>ID</th> -->
@@ -60,6 +61,7 @@
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 </div>
 
 <?php require_once APPROOT . '/Views/layout/footer.php'; ?>

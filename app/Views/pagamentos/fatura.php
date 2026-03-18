@@ -23,6 +23,21 @@
             padding: 30px;
             margin-bottom: 50px;
             position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .invoice-box::before {
+            content: "";
+            background: url("<?php echo URLROOT; ?>/logo.jpg") no-repeat center center;
+            background-size: 400px;
+            opacity: 0.15;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
         }
 
         .header {

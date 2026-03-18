@@ -14,7 +14,8 @@
             Ainda nao existem pagamentos registados. Acesse o perfil de um estudante para registar o primeiro pagamento.
         </div>
     <?php else: ?>
-        <table class="table table-hover dataTable">
+    <div class="table-responsive">
+        <table class="table table-striped dataTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -48,7 +49,8 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    <?php endif; ?>
+    </div>
+<?php endif; ?>
 </div>
 
 <?php require_once APPROOT . '/Views/layout/footer.php'; ?>
