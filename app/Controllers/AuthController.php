@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         // Se já estiver logado, redirecionar para dashboard
         if (isset($_SESSION['user_id'])) {
-            header('location: /dashboard');
+            header('Location: ' . URLROOT . '/dashboard');
             exit;
         }
 
@@ -88,7 +88,7 @@ class AuthController extends Controller
         unset($_SESSION['user_email']);
         unset($_SESSION['user_nome']);
         session_destroy();
-        header('location: /auth/login');
+        header('Location: ' . URLROOT . '/auth/login');
     }
 
     public function isLoggedIn()

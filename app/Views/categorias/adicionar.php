@@ -1,11 +1,11 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="row">
     <div class="col-md-6">
         <div class="table-container">
             <h5 style="font-weight: 700; margin-bottom: 25px;">Cadastrar Nova Categoria</h5>
 
-            <form action="/categorias/adicionar" method="post">
+            <form action="<?php echo URLROOT; ?>/categorias/adicionar" method="post">
                 <div class="form-group">
                     <label>Nome da Categoria</label>
                     <input type="text" name="nome_categoria" class="form-control" placeholder="Ex: Categoria B"
@@ -37,7 +37,7 @@
                 <div style="margin-top: 20px;">
                     <button type="submit" class="btn btn-primary"
                         style="height: 45px; padding: 0 30px; border-radius: 8px;">Salvar Categoria</button>
-                    <a href="/categorias" class="btn btn-default"
+                    <a href="<?php echo URLROOT; ?>/categorias" class="btn btn-default"
                         style="height: 45px; padding: 12px 30px; border-radius: 8px;">Cancelar</a>
                 </div>
             </form>
@@ -45,4 +45,4 @@
     </div>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

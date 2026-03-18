@@ -12,7 +12,7 @@ class EstudantesController extends Controller
     public function __construct()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('location: /auth/login');
+            header('Location: ' . URLROOT . '/auth/login');
             exit;
         }
         $this->estudanteModel = $this->model('Estudante');
@@ -49,7 +49,7 @@ class EstudantesController extends Controller
             ];
 
             if ($this->estudanteModel->addEstudante($data)) {
-                header('location: /estudantes');
+                header('Location: ' . URLROOT . '/estudantes');
             } else {
                 die('Erro ao cadastrar');
             }

@@ -12,7 +12,7 @@ class PagamentosController extends Controller
     public function __construct()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('location: /auth/login');
+            header('Location: ' . URLROOT . '/auth/login');
             exit;
         }
         $this->pagamentoModel = $this->model('Pagamento');
@@ -44,7 +44,7 @@ class PagamentosController extends Controller
     public function registar($estudante_id)
     {
         if (!is_numeric($estudante_id)) {
-            header('location: /pagamentos');
+            header('Location: ' . URLROOT . '/pagamentos');
             exit;
         }
 
@@ -122,7 +122,7 @@ class PagamentosController extends Controller
 
                 $pagamento_id = $this->pagamentoModel->addPagamento($payload);
                 if ($pagamento_id) {
-                    header('location: /pagamentos/fatura/' . $pagamento_id);
+                    header('Location: ' . URLROOT . '/pagamentos/fatura/' . $pagamento_id);
                     exit;
                 }
 
@@ -167,10 +167,6 @@ class PagamentosController extends Controller
             'pagamento' => $pagamento
         ];
 
-        if (file_exists('../app/Views/pagamentos/fatura.php')) {
-            require_once '../app/Views/pagamentos/fatura.php';
-        } else {
-            die('Fatura view nao encontrada');
-        }
+        $this->view('pagamentos/fatura', $data);
     }
 }

@@ -47,6 +47,12 @@ class App
         }
 
         $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        
+        // Remove URLROOT do path para o roteamento funcionar em subdiretórios
+        if (defined('URLROOT') && URLROOT !== '' && strpos($path, URLROOT) === 0) {
+            $path = substr($path, strlen(URLROOT));
+        }
+        
         $path = trim((string) $path, '/');
 
         if ($path === '' || $path === 'index.php') {

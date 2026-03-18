@@ -10,7 +10,7 @@ class CategoriasController extends Controller
 
     public function __construct()
     {
-        // if (!isset($_SESSION['user_id'])) { header('location: /auth/login'); exit; }
+        // if (!isset($_SESSION['user_id'])) { header('Location: ' . URLROOT . '/auth/login'); exit; }
         $this->categoriaModel = $this->model('Categoria');
     }
 
@@ -65,7 +65,7 @@ class CategoriasController extends Controller
 
             if (empty($data['nome_err']) && empty($data['preco_err'])) {
                 if ($this->categoriaModel->addCategoria($data)) {
-                    header('location: /categorias');
+                    header('Location: ' . URLROOT . '/categorias');
                     exit;
                 }
                 die('Erro ao guardar');
@@ -93,13 +93,13 @@ class CategoriasController extends Controller
     public function editar($id = null)
     {
         if ($id === null || !is_numeric($id)) {
-            header('location: /categorias');
+            header('Location: ' . URLROOT . '/categorias');
             exit;
         }
 
         $categoria = $this->categoriaModel->getCategoriaById((int) $id);
         if (!$categoria) {
-            header('location: /categorias');
+            header('Location: ' . URLROOT . '/categorias');
             exit;
         }
 
@@ -134,7 +134,7 @@ class CategoriasController extends Controller
 
             if (empty($data['nome_err']) && empty($data['preco_err'])) {
                 if ($this->categoriaModel->updateCategoria($data)) {
-                    header('location: /categorias?status=updated');
+                    header('Location: ' . URLROOT . '/categorias?status=updated');
                     exit;
                 }
                 $data['geral_err'] = 'Erro ao atualizar categoria.';
@@ -164,16 +164,16 @@ class CategoriasController extends Controller
     public function eliminar($id = null)
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || $id === null || !is_numeric($id)) {
-            header('location: /categorias');
+            header('Location: ' . URLROOT . '/categorias');
             exit;
         }
 
         if ($this->categoriaModel->deleteCategoria((int) $id)) {
-            header('location: /categorias?status=deleted');
+            header('Location: ' . URLROOT . '/categorias?status=deleted');
             exit;
         }
 
-        header('location: /categorias?status=delete_error');
+        header('Location: ' . URLROOT . '/categorias?status=delete_error');
         exit;
     }
 }

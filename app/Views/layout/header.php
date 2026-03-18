@@ -1,6 +1,10 @@
-﻿<?php
+<?php
 $title = $title ?? 'Painel Administrativo';
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+// Remove URLROOT do path para o menu ativo funcionar
+if (URLROOT !== '' && strpos($requestPath, URLROOT) === 0) {
+    $requestPath = substr($requestPath, strlen(URLROOT));
+}
 $segments = array_values(array_filter(explode('/', trim((string) $requestPath, '/'))));
 $routeSection = $segments[0] ?? 'dashboard';
 $routeAction = $segments[1] ?? '';
@@ -36,10 +40,10 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
     <title>EC 3 de Agosto | <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
     <style>
         :root {
@@ -374,26 +378,35 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
             </div>
             <ul class="sidebar-menu">
                 <li class="<?php echo $isDashboardActive ? 'active' : ''; ?>">
-                    <a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    <a href="<?php echo URLROOT; ?>/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li class="<?php echo $isEstudantesActive ? 'active' : ''; ?>">
-                    <a href="/estudantes"><i class="fa fa-users"></i> Estudantes</a>
+                    <a href="<?php echo URLROOT; ?>/estudantes"><i class="fa fa-users"></i> Estudantes</a>
                 </li>
                 <li class="submenu-item <?php echo ($activeTab === 'estudantes.add') ? 'active' : ''; ?>">
-                    <a href="/estudantes/cadastrar"><i class="fa fa-user-plus"></i> Adicionar Estudante</a>
+                    <a href="<?php echo URLROOT; ?>/estudantes/cadastrar"><i class="fa fa-user-plus"></i> Adicionar Estudante</a>
                 </li>
                 <li class="<?php echo $isCategoriasActive ? 'active' : ''; ?>">
-                    <a href="/categorias"><i class="fa fa-list"></i> Categorias</a>
+                    <a href="<?php echo URLROOT; ?>/categorias"><i class="fa fa-list"></i> Categorias</a>
                 </li>
-                <li class="<?php echo $isPagamentosActive ? 'active' : ''; ?>">
-                    <a href="/pagamentos"><i class="fa fa-money"></i> Pagamentos</a>
+                <li class="<?php echo ($data['activePage'] == 'pagamentos' || $data['activePage'] == 'despesas') ? 'active' : ''; ?>">
+                    <a href="#"><i class="fa fa-money"></i> <span>FINANCEIRO</span><i
+                            class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="<?php echo ($data['activePage'] == 'pagamentos') ? 'active' : ''; ?>">
+                            <a href="<?php echo URLROOT; ?>/pagamentos"><i class="fa fa-circle-o"></i> Pagamentos Recebidos</a>
+                        </li>
+                        <li class="<?php echo ($data['activePage'] == 'despesas') ? 'active' : ''; ?>">
+                            <a href="<?php echo URLROOT; ?>/despesas"><i class="fa fa-circle-o"></i> Gestão de Despesas</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="<?php echo $isRelatoriosActive ? 'active' : ''; ?>">
-                    <a href="/relatorios"><i class="fa fa-file-pdf-o"></i> Relatórios</a>
+                    <a href="<?php echo URLROOT; ?>/relatorios"><i class="fa fa-file-pdf-o"></i> Relatórios</a>
                 </li>
                 <li class="menu-separator">Sessão</li>
                 <li>
-                    <a href="/auth/logout" style="color: #dc2626;"><i class="fa fa-sign-out"></i> Sair</a>
+                    <a href="<?php echo URLROOT; ?>/auth/logout" style="color: #dc2626;"><i class="fa fa-sign-out"></i> Sair</a>
                 </li>
             </ul>
         </aside>
@@ -410,7 +423,7 @@ $userNome = $_SESSION['user_nome'] ?? 'Utilizador';
                 </div>
             </div>
             <div class="header-right">
-                <a href="/estudantes/cadastrar" class="btn btn-primary btn-sm header-cta">
+                <a href="<?php echo URLROOT; ?>/estudantes/cadastrar" class="btn btn-primary btn-sm header-cta">
                     <i class="fa fa-user-plus"></i> Adicionar Estudante
                 </a>
                 <div class="user-profile">

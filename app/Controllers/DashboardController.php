@@ -39,6 +39,10 @@ class DashboardController extends Controller
         $db->query('SELECT COUNT(*) as total FROM pagamentos WHERE MONTH(data_pagamento) = MONTH(CURRENT_DATE) AND YEAR(data_pagamento) = YEAR(CURRENT_DATE)');
         $pagMonth = $db->single()->total ?? 0;
 
+        // Despesa Total
+        $db->query('SELECT SUM(valor) as total FROM despesas');
+        $despesa = $db->single()->total ?? 0;
+
         $data = [
             'title' => 'Painel Administrativo',
             'activePage' => 'dashboard',
@@ -47,7 +51,9 @@ class DashboardController extends Controller
                 'estudantes_m' => $masc,
                 'estudantes_f' => $fem,
                 'pagamentos_mes' => $pagMonth,
-                'receita_total' => $receita
+                'receita_total' => $receita,
+                'despesa_total' => $despesa,
+                'saldo_liquido' => $receita - $despesa
             ]
         ];
 

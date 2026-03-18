@@ -12,13 +12,29 @@ if (php_sapi_name() === 'cli-server') {
 // Inicia sessão
 session_start();
 
+// Define constantes de caminho e URL
+if (!defined('APPROOT')) {
+    define('APPROOT', dirname(__DIR__) . '/app');
+}
+
+// URLROOT: Dinâmico baseado no diretório atual
+// Se o script estiver em /3deagosto/public/index.php ou /3deagosto/index.php
+$urlRoot = dirname($_SERVER['SCRIPT_NAME']);
+// Remove /public se estiver presente (quando acessado via public/index.php diretamente)
+$urlRoot = str_replace('/public', '', $urlRoot);
+// Normaliza para vazio se for apenas a raiz ou barra invertida do Windows
+if ($urlRoot === '/' || $urlRoot === '\\' || $urlRoot === '.') {
+    $urlRoot = '';
+}
+define('URLROOT', $urlRoot);
+
 // Autoload simples para classes PSR-4 (App\...)
 spl_autoload_register(function ($class_name) {
     // Prefixo base do namespace
     $prefix = 'App\\';
 
-    // Diretório base dos arquivos (sobe um nível de public/ para app/)
-    $base_dir = __DIR__ . '/../app/';
+    // Diretório base dos arquivos (Usa a constante APPROOT)
+    $base_dir = APPROOT . '/';
 
     // O tamanho do prefixo
     $len = strlen($prefix);

@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="table-container">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
@@ -40,4 +40,4 @@
     </table>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

@@ -1,4 +1,4 @@
-<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <?php if (!$estudante): ?>
     <div class="alert alert-danger"><?php echo htmlspecialchars($geral_err ?? 'Estudante nao encontrado.', ENT_QUOTES, 'UTF-8'); ?></div>
@@ -35,7 +35,7 @@
                     </p>
                 </div>
 
-                <form action="/pagamentos/registar/<?php echo (int) $estudante->id_estudante; ?>" method="post">
+                <form action="<?php echo URLROOT; ?>/pagamentos/registar/<?php echo (int) $estudante->id_estudante; ?>" method="post">
                     <div class="form-group">
                         <label>Valor a Pagar (CFA)</label>
                         <input type="number" step="0.01" min="0.01" max="<?php echo number_format($saldoAtualView, 2, '.', ''); ?>"
@@ -77,7 +77,7 @@
                     <div style="margin-top: 20px;">
                         <button type="submit" class="btn btn-success"
                             style="height: 45px; padding: 0 30px; border-radius: 8px;" <?php echo ($saldoAtualView <= 0) ? 'disabled' : ''; ?>>Confirmar Pagamento</button>
-                        <a href="/estudantes/perfil/<?php echo (int) $estudante->id_estudante; ?>" class="btn btn-default"
+                        <a href="<?php echo URLROOT; ?>/estudantes/perfil/<?php echo (int) $estudante->id_estudante; ?>" class="btn btn-default"
                             style="height: 45px; padding: 12px 30px; border-radius: 8px;">Cancelar</a>
                     </div>
                 </form>
@@ -87,4 +87,4 @@
 
 <?php endif; ?>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

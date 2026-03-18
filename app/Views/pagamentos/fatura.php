@@ -111,7 +111,7 @@
         <button onclick="window.print()"
             style="padding: 10px 20px; cursor: pointer; background: #007bff; color: #fff; border: none; border-radius: 4px;">Imprimir
             Fatura (A4)</button>
-        <a href="/estudantes/perfil/<?php echo $pagamento->estudante_id; ?>"
+        <a href="<?php echo URLROOT; ?>/estudantes/perfil/<?php echo $pagamento->estudante_id; ?>"
             style="color: #fff; margin-left: 20px; text-decoration: none;">Voltar ao Perfil</a>
     </div>
 

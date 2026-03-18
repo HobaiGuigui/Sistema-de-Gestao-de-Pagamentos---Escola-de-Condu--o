@@ -4,11 +4,11 @@
 </div> <!-- /.content-wrapper -->
 </div> <!-- /.wrapper -->
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="/bower_components/chart.js/Chart.min.js"></script>
+<script src="<?php echo URLROOT; ?>/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URLROOT; ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo URLROOT; ?>/bower_components/chart.js/Chart.min.js"></script>
 
 <script>
     $(function () {

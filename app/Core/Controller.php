@@ -14,10 +14,11 @@ class Controller
     // Carrega uma view
     public function view($view, $data = [])
     {
-        if (file_exists('../app/Views/' . $view . '.php')) {
+        $file = APPROOT . '/Views/' . $view . '.php';
+        if (file_exists($file)) {
             // Extrai as chaves do array em variáveis 
             extract($data);
-            require_once '../app/Views/' . $view . '.php';
+            require_once $file;
         } else {
             die('View does not exist: ' . $view);
         }

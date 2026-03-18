@@ -9,7 +9,7 @@ class RelatoriosController extends Controller
     public function __construct()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('location: /auth/login');
+            header('Location: ' . URLROOT . '/auth/login');
             exit;
         }
     }
@@ -41,6 +41,29 @@ class RelatoriosController extends Controller
             'pagamentos' => $pagamentos
         ];
         $this->view('relatorios/pagamentos', $data);
+    }
+
+    public function balanco()
+    {
+        $db = new \App\Core\Database();
+        
+        // Total Receitas
+        $db->query('SELECT SUM(valor_pago) as total FROM pagamentos');
+        $receitas = $db->single()->total ?? 0;
+
+        // Total Despesas
+        $db->query('SELECT SUM(valor) as total FROM despesas');
+        $despesas = $db->single()->total ?? 0;
+
+        $data = [
+            'title' => 'Balanço Financeiro',
+            'activePage' => 'relatorios',
+            'receitas' => $receitas,
+            'despesas' => $despesas,
+            'saldo' => $receitas - $despesas
+        ];
+
+        $this->view('relatorios/balanco', $data);
     }
 
     public function export_csv()

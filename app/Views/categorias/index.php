@@ -1,4 +1,4 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="table-container">
     <?php if (!empty($feedback)): ?>
@@ -12,7 +12,7 @@
             <h5 class="section-title">Categorias de Cursos</h5>
             <p class="section-subtitle">Defina valores, duração e estado de cada categoria.</p>
         </div>
-        <a href="/categorias/adicionar" class="btn btn-primary"><i class="fa fa-plus"></i> Nova Categoria</a>
+        <a href="<?php echo URLROOT; ?>/categorias/adicionar" class="btn btn-primary"><i class="fa fa-plus"></i> Nova Categoria</a>
     </div>
 
     <table class="table table-hover dataTable">
@@ -44,11 +44,11 @@
                             </span>
                         </td>
                         <td style="text-align: right; white-space: nowrap;">
-                            <a href="/categorias/editar/<?php echo $cat->id_categoria; ?>"
+                            <a href="<?php echo URLROOT; ?>/categorias/editar/<?php echo $cat->id_categoria; ?>"
                                 class="btn btn-default btn-xs btn-action" title="Editar categoria">
                                 <i class="fa fa-pencil"></i> Editar
                             </a>
-                            <form action="/categorias/eliminar/<?php echo $cat->id_categoria; ?>" method="post"
+                            <form action="<?php echo URLROOT; ?>/categorias/eliminar/<?php echo $cat->id_categoria; ?>" method="post"
                                 style="display: inline;"
                                 onsubmit="return confirm('Tem certeza que deseja eliminar esta categoria?');">
                                 <button type="submit" class="btn btn-danger btn-xs btn-action" title="Eliminar categoria">
@@ -63,4 +63,4 @@
     </table>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

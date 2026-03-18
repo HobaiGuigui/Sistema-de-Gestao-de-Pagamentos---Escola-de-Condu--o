@@ -1,4 +1,4 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="table-container">
     <div class="section-toolbar">
@@ -6,12 +6,12 @@
             <h5 class="section-title">Cadastrar Novo Estudante</h5>
             <p class="section-subtitle">Preencha os dados pessoais e os dados da inscricao.</p>
         </div>
-        <a href="/estudantes" class="btn btn-default">
+        <a href="<?php echo URLROOT; ?>/estudantes" class="btn btn-default">
             <i class="fa fa-arrow-left"></i> Voltar para lista
         </a>
     </div>
 
-    <form action="/estudantes/cadastrar" method="post">
+    <form action="<?php echo URLROOT; ?>/estudantes/cadastrar" method="post">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -92,9 +92,9 @@
             <button type="submit" class="btn btn-primary" style="height: 44px; padding: 0 26px;">
                 <i class="fa fa-check"></i> Cadastrar Estudante
             </button>
-            <a href="/estudantes" class="btn btn-default" style="height: 44px; padding: 12px 26px;">Cancelar</a>
+            <a href="<?php echo URLROOT; ?>/estudantes" class="btn btn-default" style="height: 44px; padding: 12px 26px;">Cancelar</a>
         </div>
     </form>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

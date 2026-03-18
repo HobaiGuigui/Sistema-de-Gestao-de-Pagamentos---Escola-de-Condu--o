@@ -1,4 +1,4 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="section-toolbar" style="margin-bottom: 16px;">
     <div>
@@ -6,8 +6,8 @@
         <p class="section-subtitle">Acompanhe os indicadores principais e acesse as acoes rapidas.</p>
     </div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="/estudantes/cadastrar" class="btn btn-primary"><i class="fa fa-user-plus"></i> Adicionar Estudante</a>
-        <a href="/relatorios" class="btn btn-default"><i class="fa fa-file-text-o"></i> Ver Relatorios</a>
+        <a href="<?php echo URLROOT; ?>/estudantes/cadastrar" class="btn btn-primary"><i class="fa fa-user-plus"></i> Adicionar Estudante</a>
+        <a href="<?php echo URLROOT; ?>/relatorios" class="btn btn-default"><i class="fa fa-file-text-o"></i> Ver Relatorios</a>
     </div>
 </div>
 
@@ -33,7 +33,19 @@
     <div class="col-md-3">
         <div class="card-stat" style="border-left: 4px solid #16a34a;">
             <h4>Receita Total</h4>
-            <div class="value">CFA <?php echo number_format($stats['receita_total'], 2, ',', '.'); ?></div>
+            <div class="value" style="color: #16a34a;">CFA <?php echo number_format($stats['receita_total'], 2, ',', '.'); ?></div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-stat" style="border-left: 4px solid #ef4444;">
+            <h4>Despesa Total</h4>
+            <div class="value" style="color: #ef4444;">CFA <?php echo number_format($stats['despesa_total'], 2, ',', '.'); ?></div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-stat" style="border-left: 4px solid #3b82f6;">
+            <h4>Saldo Líquido</h4>
+            <div class="value" style="color: #3b82f6;">CFA <?php echo number_format($stats['saldo_liquido'], 2, ',', '.'); ?></div>
         </div>
     </div>
 </div>
@@ -105,4 +117,4 @@
     };
 </script>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

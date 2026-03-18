@@ -1,4 +1,4 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <?php if (!$estudante): ?>
     <div class="alert alert-danger">Estudante nao encontrado.</div>
@@ -26,7 +26,7 @@
                     <p><strong><i class="fa fa-clock-o"></i> Fim:</strong>
                         <?php echo date('d/m/Y', strtotime($estudante->data_fim_curso)); ?></p>
                 </div>
-                <a href="/estudantes" class="btn btn-default btn-block" style="margin-top: 20px;">
+                <a href="<?php echo URLROOT; ?>/estudantes" class="btn btn-default btn-block" style="margin-top: 20px;">
                     <i class="fa fa-arrow-left"></i> Voltar para lista
                 </a>
             </div>
@@ -54,7 +54,7 @@
                     <div>
                         <h5 class="section-title" style="font-size:16px;">Historico de Pagamentos</h5>
                     </div>
-                    <a href="/pagamentos/registar/<?php echo $estudante->id_estudante; ?>" class="btn btn-success">
+                    <a href="<?php echo URLROOT; ?>/pagamentos/registar/<?php echo $estudante->id_estudante; ?>" class="btn btn-success">
                         <i class="fa fa-money"></i> Registar Pagamento
                     </a>
                 </div>
@@ -87,7 +87,7 @@
                                     <td><strong>CFA <?php echo number_format($pag->valor_pago, 2, ',', '.'); ?></strong></td>
                                     <td><?php echo ucfirst($pag->forma_pagamento); ?></td>
                                     <td style="text-align: right;">
-                                        <a href="/pagamentos/fatura/<?php echo $pag->id_pagamento; ?>" target="_blank"
+                                        <a href="<?php echo URLROOT; ?>/pagamentos/fatura/<?php echo $pag->id_pagamento; ?>" target="_blank"
                                             class="btn btn-default btn-xs btn-action"><i class="fa fa-print"></i> Imprimir</a>
                                     </td>
                                 </tr>
@@ -101,4 +101,4 @@
 
 <?php endif; ?>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

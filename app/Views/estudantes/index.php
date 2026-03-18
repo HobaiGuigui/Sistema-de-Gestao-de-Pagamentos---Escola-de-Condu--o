@@ -1,4 +1,4 @@
-﻿<?php require_once '../app/Views/layout/header.php'; ?>
+<?php require_once APPROOT . '/Views/layout/header.php'; ?>
 
 <div class="table-container">
     <div class="section-toolbar">
@@ -6,7 +6,7 @@
             <h5 class="section-title">Lista de Estudantes</h5>
             <p class="section-subtitle">Gerencie perfis, inscricoes e pagamentos dos estudantes.</p>
         </div>
-        <a href="/estudantes/cadastrar" class="btn btn-primary">
+        <a href="<?php echo URLROOT; ?>/estudantes/cadastrar" class="btn btn-primary">
             <i class="fa fa-user-plus"></i> Adicionar Estudante
         </a>
     </div>
@@ -46,11 +46,11 @@
                             </span>
                         </td>
                         <td style="text-align: right; white-space: nowrap;">
-                            <a href="/estudantes/perfil/<?php echo $est->id_estudante; ?>"
+                            <a href="<?php echo URLROOT; ?>/estudantes/perfil/<?php echo $est->id_estudante; ?>"
                                 class="btn btn-default btn-xs btn-action" title="Ver Perfil">
                                 <i class="fa fa-user"></i> Perfil
                             </a>
-                            <a href="/pagamentos/registar/<?php echo $est->id_estudante; ?>"
+                            <a href="<?php echo URLROOT; ?>/pagamentos/registar/<?php echo $est->id_estudante; ?>"
                                 class="btn btn-success btn-xs btn-action" title="Registar Pagamento">
                                 <i class="fa fa-money"></i> Pagamento
                             </a>
@@ -62,4 +62,4 @@
     </table>
 </div>
 
-<?php require_once '../app/Views/layout/footer.php'; ?>
+<?php require_once APPROOT . '/Views/layout/footer.php'; ?>

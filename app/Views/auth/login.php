@@ -7,7 +7,7 @@
     <title>EC 3 de Agosto | Acesso Restrito</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -197,7 +197,7 @@
                 <?php echo $email_err ?: $password_err; ?>
             </div>
 
-            <form action="/auth/login" method="post">
+            <form action="<?php echo URLROOT; ?>/auth/login" method="post">
                 <div class="form-group">
                     <label class="form-label">Endereço de Email</label>
                     <input type="email" name="email" class="form-control" placeholder="nome@escola.com"
@@ -218,8 +218,8 @@
         <p class="footer-text">&copy; <?php echo date('Y'); ?> Todos os direitos reservados ao Engº. <b href:"https://linkedin.com/Hiobaldine">Hiobaldine</b> tel.:955502845</p>
     </div>
 
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

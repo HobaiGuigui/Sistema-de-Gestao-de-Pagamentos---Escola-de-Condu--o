@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+    
+    # Try to set base automatically or manually if you rename the folder
+    # RewriteBase /3deagosto/
+    
+    # If the file/dir exists in public, serve it directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Send everything to public/index.php
+    RewriteRule ^(.*)$ public/index.php?url=$1 [L,QSA]
+</IfModule>
